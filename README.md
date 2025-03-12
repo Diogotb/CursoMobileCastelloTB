@@ -10,7 +10,7 @@
             - polimorfismo
             - encapsulamento
             - abstração
-- Instrodução a Aplicativos Mobile
+- Introdução a Aplicativos Mobile
     - Tipos de Desenvolvimento:
         - Nativo
             - Android:
