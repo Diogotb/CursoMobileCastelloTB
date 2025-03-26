@@ -37,3 +37,8 @@
                 - Linguagem: JavaScript
                 - SDK: Node.js
                 - Resultado: Android / Ios / Web ( não Nativos - RunTime)
+
+    - Estrutura de Aplicativos Mobile
+        - Scaffold: - flutter create --platforms=android --empty exemplo_widget_scaffold
+                    - cd exemplo_widget_scaffold
+                    - code . (abrir em uma nova janela - Sempre)
