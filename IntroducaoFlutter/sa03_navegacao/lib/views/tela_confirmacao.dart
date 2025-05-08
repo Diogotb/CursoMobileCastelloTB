@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 
 class TelaConfirmacao extends StatelessWidget{
+  const TelaConfirmacao({super.key});
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(

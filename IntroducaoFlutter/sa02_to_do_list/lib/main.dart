@@ -6,7 +6,9 @@ void main(){ //função principal
 
 //janela do aplicativo
 // statefulwidget
-class ToDoListApp extends StatefulWidget{//1º classe realiza a mudança de estado(setState)
+class ToDoListApp extends StatefulWidget{
+  const ToDoListApp({super.key});
+//1º classe realiza a mudança de estado(setState)
   @override
   _ToDoListAppState createState() => _ToDoListAppState();
 }
@@ -14,7 +16,7 @@ class ToDoListApp extends StatefulWidget{//1º classe realiza a mudança de esta
 class _ToDoListAppState extends State<ToDoListApp>{//2º classe realiza o build => logica de Construção da Janela
   //atributos
   final TextEditingController _tarefaController = TextEditingController();
-  List<Map<String,dynamic>> _tarefas = [];
+  final List<Map<String,dynamic>> _tarefas = [];
 
   @override
   Widget build(BuildContext context){

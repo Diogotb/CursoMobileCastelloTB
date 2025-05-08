@@ -2,6 +2,8 @@ import 'package:flutter/material.dart';
 
 //chama a modificação
 class TelaCadastro extends StatefulWidget{
+  const TelaCadastro({super.key});
+
   @override
   _TelaCadastroState createState() => _TelaCadastroState(); 
 }
@@ -60,7 +62,7 @@ class _TelaCadastroState extends State<TelaCadastro>{
     if(_nomeController.text.isNotEmpty && _emailController.text.isNotEmpty && _idade>-18 && _aceite){
       Navigator.pushNamed(context, "/confirmacao");
     }else{
-      ScaffoldMessenger.of(context).showSnackBar(SnackBar(content:Text("Verifique seu Cadastro") ))
+      ScaffoldMessenger.of(context).showSnackBar(SnackBar(content:Text("Verifique seu Cadastro") ));
     }
 
   }

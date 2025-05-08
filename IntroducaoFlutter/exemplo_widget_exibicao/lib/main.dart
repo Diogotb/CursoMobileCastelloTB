@@ -8,6 +8,8 @@ void main() {
 
 //class de janela
 class MyApp extends StatelessWidget {
+  const MyApp({super.key});
+
   //construtor de widget
   @override
   Widget build(BuildContext context) {

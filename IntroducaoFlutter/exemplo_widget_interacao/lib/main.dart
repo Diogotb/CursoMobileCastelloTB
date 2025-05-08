@@ -6,6 +6,8 @@ void main(){
 
 //criar uma tela de Cadastro (formulário) - 
 class TelaCadastroApp extends StatefulWidget{
+  const TelaCadastroApp({super.key});
+
   @override
   _TelaCadastroAppState createState() => _TelaCadastroAppState();
 }
