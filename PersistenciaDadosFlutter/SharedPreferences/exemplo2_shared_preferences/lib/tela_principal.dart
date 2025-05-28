@@ -2,6 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
 class TelaPrincipal extends StatefulWidget{
+  const TelaPrincipal({super.key});
+
   @override
   State<TelaPrincipal> createState() => _TelaPrincipalState();
 }
@@ -12,7 +14,7 @@ class _TelaPrincipalState extends State<TelaPrincipal>{
   bool _darkMode = false;
   bool _logado = true;
   List<String> _tarefas = [];
-  TextEditingController _tarefaController = TextEditingController();
+  final TextEditingController _tarefaController = TextEditingController();
 
   //métodos
   @override
@@ -23,12 +25,12 @@ class _TelaPrincipalState extends State<TelaPrincipal>{
   }
 
   _carregarPreferrencias() async{
-    SharedPreferences _prefs = await SharedPreferences.getInstance();
+    SharedPreferences prefs = await SharedPreferences.getInstance();
     setState(() {
-      _nome = _prefs.getString("nome") ?? ""; 
-      _darkMode = _prefs.getBool("darkMode") ?? false;
-      _logado = _prefs.getBool("logado") ?? false;
-      _tarefas = _prefs.getStringList(_nome) ?? [];
+      _nome = prefs.getString("nome") ?? ""; 
+      _darkMode = prefs.getBool("darkMode") ?? false;
+      _logado = prefs.getBool("logado") ?? false;
+      _tarefas = prefs.getStringList(_nome) ?? [];
     });
 
   }
@@ -41,9 +43,9 @@ class _TelaPrincipalState extends State<TelaPrincipal>{
         appBar: AppBar(title: Text("Tarefas de $_nome"),actions: [
           IconButton(
             onPressed: () async{
-              SharedPreferences _prefs = await SharedPreferences.getInstance();
+              SharedPreferences prefs = await SharedPreferences.getInstance();
               _logado = false;
-              _prefs.setBool("logado", _logado);
+              prefs.setBool("logado", _logado);
               Navigator.pushNamed(context, "/");
             }, 
             icon: Icon(Icons.logout))
@@ -82,12 +84,12 @@ class _TelaPrincipalState extends State<TelaPrincipal>{
   }
 
   _adicionarTarefa() async{
-    SharedPreferences _prefs = await SharedPreferences.getInstance();
+    SharedPreferences prefs = await SharedPreferences.getInstance();
     if(_tarefaController.text.trim().isEmpty){
       ScaffoldMessenger.of(context).showSnackBar(SnackBar(content: Text("A tarefa está vazia")));
     }else{
       _tarefas.add(_tarefaController.text.trim()); // adicionanado o texto dentro da lista de text (ListString)
-      _prefs.setStringList(_nome, _tarefas);
+      prefs.setStringList(_nome, _tarefas);
       setState(() {
         _tarefaController.clear();
         ScaffoldMessenger.of(context).showSnackBar(SnackBar(content: Text("Tarefa Adiconada com Sucesso")));

@@ -13,15 +13,17 @@ void main(){ // método principal para rodar a aplicação
   ));
 }
 
-class TelaPerfil extends StatefulWidget{ //tela dinâmica
+class TelaPerfil extends StatefulWidget{
+  const TelaPerfil({super.key});
+ //tela dinâmica
   @override
   State<TelaPerfil> createState() => _TelaPerfilState(); //chama a mudança
 }
 
 class _TelaPerfilState extends State<TelaPerfil>{ //realiza a construção da tela
   //atributos
-  TextEditingController _nomeController = TextEditingController(); // receber os dados do input
-  TextEditingController _idadeController = TextEditingController();
+  final TextEditingController _nomeController = TextEditingController(); // receber os dados do input
+  final TextEditingController _idadeController = TextEditingController();
 
   String? _nome; // permite variaveis nulas 
   String? _idade; // permite variaveis nulas
@@ -53,27 +55,26 @@ class _TelaPerfilState extends State<TelaPerfil>{ //realiza a construção da te
 
   _carregarPreferencias() async{ // métodos assincrono (sem ordem de execução)
     //conectar com SharedPreferences
-    SharedPreferences _prefs = await SharedPreferences.getInstance(); 
+    SharedPreferences prefs = await SharedPreferences.getInstance(); 
     setState(() { //mudança de estado
-    _nome = _prefs.getString("nome");
-    _idade = _prefs.getString("idade");
-    _cor = _prefs.getString("cor");
+    _nome = prefs.getString("nome");
+    _idade = prefs.getString("idade");
+    _cor = prefs.getString("cor");
     if(_cor != null){
       _corFundo = coresDisponiveis[_cor!]!; // !permite nulo 
-      _corSelecionada = _cor;
     }
     });
   }
 
   _salvarPreferencias() async{
-    SharedPreferences _prefs = await SharedPreferences.getInstance();
+    SharedPreferences prefs = await SharedPreferences.getInstance();
     _nome = _nomeController.text.trim();
     _idade = _idadeController.text.trim();
     _corFundo = coresDisponiveis[_cor!]!;
 
-    await _prefs.setString("nome", _nome ?? ""); //aramazena o nome
-    await _prefs.setString("idade", _idade ?? ""); //armazena a idade como double
-    await _prefs.setString("cor", _cor ?? "Branco"); // armazena a cor , caso nulo armazena branco
+    await prefs.setString("nome", _nome ?? ""); //aramazena o nome
+    await prefs.setString("idade", _idade ?? ""); //armazena a idade como double
+    await prefs.setString("cor", _cor ?? "Branco"); // armazena a cor , caso nulo armazena branco
     setState(() {
       
     });

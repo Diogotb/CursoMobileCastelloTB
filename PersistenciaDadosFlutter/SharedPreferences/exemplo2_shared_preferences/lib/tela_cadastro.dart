@@ -4,8 +4,10 @@ import 'package:shared_preferences/shared_preferences.dart';
 
 class TelaCadastro extends StatelessWidget {
   //atributos
-  TextEditingController _nomeController = TextEditingController();
-  TextEditingController _emailController = TextEditingController();
+  final TextEditingController _nomeController = TextEditingController();
+  final TextEditingController _emailController = TextEditingController();
+
+  TelaCadastro({super.key});
 
   //métodos
   @override
@@ -38,13 +40,13 @@ class TelaCadastro extends StatelessWidget {
   }
 
   _cadastrarUsuario(BuildContext context) async {
-    String _nome = _nomeController.text.trim();
-    String _email = _emailController.text.trim();
-    if(_nome.isEmpty || _email.isEmpty){
+    String nome = _nomeController.text.trim();
+    String email = _emailController.text.trim();
+    if(nome.isEmpty || email.isEmpty){
       ScaffoldMessenger.of(context).showSnackBar(SnackBar(content: Text("Preencha todos os Campos!")));
     } else{
-      SharedPreferences _prefs = await SharedPreferences.getInstance(); 
-      _prefs.setString(_nome, _email); //salva na chame nome o email
+      SharedPreferences prefs = await SharedPreferences.getInstance(); 
+      prefs.setString(nome, email); //salva na chame nome o email
       ScaffoldMessenger.of(context).showSnackBar(SnackBar(content: Text("Usuário Cadastrado com Sucesso!!!")));
       _nomeController.clear();
       _emailController.clear();
