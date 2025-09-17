@@ -1,27 +1,38 @@
-estrutura do meu DB
+# Estrutura do Banco de Dados
 
-db.json
+## dentro do Firebase -> Banco de Dados Vertical
 
+DB(default)
 {
-    "users":[
-        "uid1":{
+    "usuarios":[
+        "user1":{
             "tarefas":[
                 {
-                    "titulo":"Tarefa1"
-                    , 
-                    "concluida":false
-                    , 
-                    "criadaEM": 123456789
+                    "id":"asd123",
+                    "titulo":"a",
+                    "concluida":false,
+                    "dataCriacao":12345678
+                },
+                {
+                    "id":"asd123",
+                    "titulo":"a",
+                    "concluida":false,
+                    "dataCriacao":12345678
                 }
-            ]
-        }
-        , 
-        "uid2":{
+            ],
+            "listaDeCompras":[
+                {
+                    lista de compras 1
+                }
+            ],
+            ""
+        "user2":{
             "tarefas":[
-                
-            ]
+
+            ],
+            
         }
-        , 
-        uid3
+            
+        }
     ]
 }
