@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "474296623070",
+    "project_id": "cine-favorite-castellob",
+    "storage_bucket": "cine-favorite-castellob.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:474296623070:android:874d2f62aff23a6ad0874f",
+        "android_client_info": {
+          "package_name": "com.example.cine_favorite"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCzoonphBH-zZufslRir6zPreo4RzS_-sw"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
